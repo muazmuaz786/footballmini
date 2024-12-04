@@ -1,0 +1,45 @@
+.score{
+    z-index: 100000;
+    margin-bottom: -60px;
+    margin-top: 0px;
+    color: brown;
+    font-size: 50px;
+    position: relative;
+    margin-left: 70px;
+}.score2{
+    z-index: 100000;
+    margin-bottom: -60px;
+    margin-top: 0px;
+    color: brown;
+    font-size: 50px;
+    position: absolute;
+    right: 55px;
+    top: 10px;
+    margin-left: 70px;
+}
+body{
+    padding: 0px 0px 0px 0px;
+    background-image: url('축구장.jpg');
+    background-size: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.goal1{
+    position: absolute;
+    top: 470%;
+    right: 85%;
+    height: 130px;
+}
+.goal2{
+    position: absolute;
+    top: 470%;
+    left: 83%;
+    height: 130px;
+    margin-right: 0px;
+}
+.ball{
+    height: 110px;
+    position: absolute;
+    top: 570%;
+    left: 47%;
+}
