@@ -37,14 +37,13 @@ function moveBall(){
 
     if(player1Bottom >= ballY && ballY >= player1Top && ballX <= 230){
         speedX *= -1;
-        ballX = 230.5;
+        ballX = 229.5;
     }
 
     const player2Top = (player2Y - playerheight / 2) + 120;
     const player2Bottom =  (player2Y + playerheight / 2) - 10;
 
     const r = Math.random();
-
     if(player2Bottom >= ballY && ballY >= player2Top && ballX >= 1200){
         speedX *= -1;
         ballX = 1200.5;
@@ -155,19 +154,19 @@ document.addEventListener('keydown', (event) => {
     }
 })
 
-document.addEventListener('keydown', (event) => {
+/*document.addEventListener('keydown', (event) => {
     if(event.key === 'i'){
         if(player2Y <= -10){
             console.log('the end')
         }else{
-            player2Y = Number(player2Y) - 15;
+            player2Y = Number(player2Y) - 30;
             player2.style.top = `${player2Y}px`;
         }
     }else if(event.key === 'k'){
         if(player2Y >= 580){
             console.log('the end')
         }else{
-            player2Y = Number(player2Y) + 15;
+            player2Y = Number(player2Y) + 30;
             player2.style.top = `${player2Y}px`
         }
     }
@@ -175,10 +174,57 @@ document.addEventListener('keydown', (event) => {
         if(player1Y <= -10){
             console.log('the end');
         }else{
-            player1Y = Number(player1Y) - 15;
+            player1Y = Number(player1Y) - 30;
             player1.style.top = `${player1Y}px`
         }
     }else if(event.key === 's'){
+        if(player1Y >= 580){
+            console.log('the end');
+        }else{
+            player1Y = Number(player1Y) + 30;
+            player1.style.top = `${player1Y}px`
+        }
+    }
+
+})
+*/
+
+
+const keys = {
+    w: false,
+    s: false,
+    i: false,
+    k: false,
+}
+
+function p1(){
+    if(keys.i){
+        if(player2Y <= -10){
+            console.log('the end')
+        }else{
+            player2Y = Number(player2Y) - 15;
+            player2.style.top = `${player2Y}px`;
+        }
+    }else if(keys.k){
+        if(player2Y >= 580){
+            console.log('the end')
+        }else{
+            player2Y = Number(player2Y) + 15;
+            player2.style.top = `${player2Y}px`
+        }
+    }
+    requestAnimationFrame(p1);
+}
+
+function p2(){
+    if(keys.w){
+        if(player1Y <= -10){
+            console.log('the end');
+        }else{
+            player1Y = Number(player1Y) - 15;
+            player1.style.top = `${player1Y}px`
+        }
+    }else if(keys.s){
         if(player1Y >= 580){
             console.log('the end');
         }else{
@@ -186,5 +232,42 @@ document.addEventListener('keydown', (event) => {
             player1.style.top = `${player1Y}px`
         }
     }
+    requestAnimationFrame(p2);
+}
 
-})
+
+document.addEventListener('keydown', (event) => {
+    if(event.key === 'w'){
+        keys.w = true;
+    }else if(event.key === 's'){
+        keys.s = true;
+    }
+});
+document.addEventListener('keydown', (event) => {
+    if(event.key === 'i'){
+        keys.i = true;
+    }else if(event.key === 'k'){
+        keys.k = true;
+    }
+});
+
+
+document.addEventListener('keyup' , (event) => {
+    if(event.key === 'w'){
+        keys.w = false
+    }else if(event.key === 's'){
+        keys.s = false
+    }
+});
+document.addEventListener('keyup' , (event) => {
+    if(event.key === 'i'){
+        keys.i = false
+    }else if(event.key === 'k'){
+        keys.k = false
+    }
+});
+
+
+
+p1();
+p2();
