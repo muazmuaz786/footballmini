@@ -37,7 +37,7 @@ function moveBall(){
 
     if(player1Bottom >= ballY && ballY >= player1Top && ballX <= 230){
         speedX *= -1;
-        ballX = 229.5;
+        ballX = 230.5;
     }
 
     const player2Top = (player2Y - playerheight / 2) + 120;
@@ -46,7 +46,7 @@ function moveBall(){
     const r = Math.random();
     if(player2Bottom >= ballY && ballY >= player2Top && ballX >= 1200){
         speedX *= -1;
-        ballX = 1200.5;
+        ballX = 1199.5;
     }
 
     if(ballX <= 0){
